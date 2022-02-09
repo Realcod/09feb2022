@@ -1,0 +1,56 @@
+/*
+As we know, Ishaan has a love for chocolates. He has bought a huge chocolate bar that contains N chocolate squares. Each of the squares has a tastiness level which is denoted by an array A[].
+Ishaan can eat the first or the last square of the chocolate at once. Ishaan has a sister who loves chocolates too and she demands the last chocolate square. Now, Ishaan being greedy eats the more tasty square first.
+Determine the tastiness level of the square which his sister gets.
+
+Example 1:
+
+â€‹Input : arr[ ] = {5, 3, 1, 6, 9}
+Output : 1
+Explanation:
+Initially: 5 3 1 6 9
+In first step: 5 3 1 6
+In Second step: 5 3 1
+In Third step: 3 1
+In Fourth step: 1
+Return 1
+*/
+
+#include<iostream>
+using namespace std;
+
+int mostdel(int arr[],int n){
+	int i=0;
+	int j=n-1;
+	while(i<j){
+		if(arr[i]>arr[j]){
+			arr[i]=INT_MIN;
+			i++;
+		}
+		else{
+			arr[j]=INT_MIN;
+			j--;
+		}
+	}
+	return arr[i];
+}
+
+
+
+int main(){
+	int n,arr[100];
+	cout<<"Enter the size of the array"<<endl;
+	cin>>n;
+	
+	cout<<"Enter the elements in the array"<<endl;
+	for(int i=0;i<n;i++){
+		cin>>arr[i];
+	}
+	
+	int delicious=mostdel(arr,n);
+	cout<<delicious;
+	/*for(int i=0;i<n;i++){
+		cout<<arr[i]<<" ";
+	}*/
+	
+}
