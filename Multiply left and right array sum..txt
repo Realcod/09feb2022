@@ -1,0 +1,40 @@
+/*
+Pitsy needs help with the given task by her teacher. The task is to divide an array into two sub-array
+(left and right) containing n/2 elements each and do the sum of the subarrays and then multiply both the subarrays.
+
+Note: If the length of the array is odd then the right half will contain one element more than the left half.
+*/
+
+#include<iostream>
+using namespace std;
+
+int multiply(int arr[],int n){
+	int sumleft=0,sumright=0;
+	for(int i=0;i<n/2;i++){
+		sumleft+=arr[i];
+	}
+	for(int i=n/2;i<n;i++){
+		sumright+=arr[i];
+	}
+	return sumleft*sumright;
+}
+
+
+
+int main(){
+	int n,arr[100];
+	cout<<"Enter the size of the array"<<endl;
+	cin>>n;
+	
+	cout<<"Enter the elements in the array"<<endl;
+	for(int i=0;i<n;i++){
+		cin>>arr[i];
+	}
+	
+	int multiplyleftright=multiply(arr,n);
+	cout<<multiplyleftright;
+	/*for(int i=0;i<n;i++){
+		cout<<arr[i]<<" ";
+	}*/
+	
+}
