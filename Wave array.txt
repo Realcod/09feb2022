@@ -1,0 +1,42 @@
+/*
+Given a sorted array arr[] of distinct integers. Sort the array into a wave-like array and return it
+In other words, arrange the elements into a sequence such that arr[1] >= arr[2] <= arr[3] >= arr[4] <= arr[5].....
+
+If there are multiple solutions, find the lexicographically smallest one.
+*/
+
+#include<iostream>
+using namespace std;
+
+void wavearray(int arr[],int n){
+	for(int i=0;i<n;i=i+2){
+		int j=i+1;
+		if(j>=n){
+			break;
+		}
+		if(arr[i]<arr[j]){
+			int temp=arr[i];
+			arr[i]=arr[j];
+			arr[j]=temp;
+		}
+	}
+}
+
+
+
+int main(){
+	int n,arr[100];
+	cout<<"Enter the size of the array"<<endl;
+	cin>>n;
+	
+	cout<<"Enter the elements in the array"<<endl;
+	for(int i=0;i<n;i++){
+		cin>>arr[i];
+	}
+	
+	wavearray(arr,n);
+	for(int i=0;i<n;i++){
+		cout<<arr[i]<<" ";
+	}
+	
+}
